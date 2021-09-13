@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Librariest</title>
+        <meta charset="UTF-8">
+        <style>
+            .butts{
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h4>LibrariesList list:</h4>
+            <span>
+                #for(lib in librariesList):
+                    <p>----------------------------------------------------</p>
+                    <span>
+                        <p>#(lib.street) | #(lib.city) | #(lib.streetNumber) | #(lib.numberOfBooks)</p>
+                            <form method="POST" action="/libraries/del/#(lib.id)">
+                                <input type="submit" value="DELETE" />
+                            </form>
+                            <form method="POST" action="/libraries/edit/#(lib.id)">
+                                <input type="text" value="#(lib.street)" name="street">
+                                <input type="text" value="#(lib.city)" name="city">
+                                <input type="text" value="#(lib.streetNumber)" name="streetNumber">
+                                <input type="text" value="#(lib.numberOfBooks)" name="numberOfBooks">
+                                <input type="submit" value="EDIT" />
+                            </form>
+                    </span>
+                    <p>----------------------------------------------------</p>
+                #endfor
+            </span>
+        </div>
+
+        <div>
+            <h4>Add llibrary:</h4>
+            <form method="POST" action="/libraries">
+                <input type="text" placeholder="street" name="street">
+                <input type="text" placeholder="city" name="city">
+                <input type="text" placeholder="streetNumber" name="streetNumber">
+                <input type="text" placeholder="numberOfBooks" name="numberOfBooks">
+                <input type="submit" value="ADD" />
+            </form>
+        </div>
+    </body>
+</html>

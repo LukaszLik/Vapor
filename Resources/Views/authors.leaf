@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Authors</title>
+        <meta charset="UTF-8">
+        <style>
+            .butts{
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h4>Authors list:</h4>
+            <span>
+                #for(author in authorsList):
+                    <p>----------------------------------------------------</p>
+                    <span>
+                        <p>#(author.id) | #(author.firstName) | #(author.lastName) | #(author.placeOfBirth)</p>
+                            <form method="POST" action="/authors/del/#(author.id)">
+                                <input type="submit" value="DELETE" />
+                            </form>
+                            <form method="POST" action="/authors/edit/#(author.id)">
+                                <input type="text" value="#(author.firstName)" name="firstName">
+                                <input type="text" value="#(author.lastName)" name="lastName">
+                                <input type="text" value="#(author.placeOfBirth)" name="placeOfBirth">
+                                <input type="submit" value="EDIT" />
+                            </form>
+                    </span>
+                    <p>----------------------------------------------------</p>
+                #endfor
+            </span>
+        </div>
+
+        <div>
+            <h4>Add author:</h4>
+            <form method="POST" action="/authors">
+                <input type="text" placeholder="firstName" name="firstName">
+                <input type="text" placeholder="lastName" name="lastName">
+                <input type="text" placeholder="placeOfBirth" name="placeOfBirth">
+                <input type="submit" value="ADD" />
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Books</title>
+        <meta charset="UTF-8">
+        <style>
+            .butts{
+                display: inline-block;
+            }
+
+            .im{
+                display: none
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h4>Books list:</h4>
+            <span>
+                #for(book in booksList):
+                    <p>----------------------------------------------------</p>
+                    <span>
+                        <p>#(book.id) | #(book.title) | #(book.numPages) | #(book.placeOfPublication) | #(book.authorId.id)</p>
+                            <form method="POST" action="/books/del/#(book.id)">
+                                <input type="submit" value="DELETE" />
+                            </form>
+                            <form method="POST" action="/books/edit/#(book.id)">
+                                <input type="text" value="#(book.title)" name="title">
+                                <input type="text" value="#(book.numPages)" name="numPages">
+                                <input type="text" value="#(book.placeOfPublication)" name="placeOfPublication">
+                                <input class = "im" type="text" value="#(book.authorId.id)" name="authorId">
+                                <input type="submit" value="EDIT" />
+                            </form>
+                    </span>
+                    <p>----------------------------------------------------</p>
+                #endfor
+            </span>
+        </div>
+
+        <div>
+            <h4>Add book:</h4>
+            <form method="POST" action="/books">
+                <input type="text" placeholder="title" name="title">
+                <input type="text" placeholder="numPages" name="numPages">
+                <input type="text" placeholder="placeOfPublication" name="placeOfPublication">
+                <input type="text" placeholder="authorId" name="authorId">
+                <input type="submit" value="ADD" />
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,7 @@
+
+                            // <form method="POST" action="/authors/edit/#(author.id)">
+                            //     <input type="text" placeholder="firstName" name="firstName">
+                            //     <input type="text" placeholder="lastName" name="lastName">
+                            //     <input type="text" placeholder="placeOfBirth" name="placeOfBirth">
+                            //     <input type="submit" value="EDIT" />
+                            // </form>
